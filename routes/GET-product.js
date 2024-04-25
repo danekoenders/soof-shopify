@@ -110,7 +110,7 @@ async function productByTitle({ api, logger, request, title }) {
         status: "success",
         title: products[0].title,
         body: products[0].body,
-        productCategory: products[0].productCategory.productTaxonomyNode.fullName,
+        productCategory: products[0].productCategory?.productTaxonomyNode.fullName,
       };
 
       return response;
