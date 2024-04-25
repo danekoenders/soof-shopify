@@ -55,7 +55,6 @@ async function productRecommendation({ api, logger, request, searchTerm }) {
       },
     });
 
-    // If no products found, respond accordingly
     if (products.length < 1) {
       const response = {
         status: "failed",
@@ -68,7 +67,7 @@ async function productRecommendation({ api, logger, request, searchTerm }) {
     if (products.length > 0) {
       let response = {
         status: "success",
-        amount: products.length, // Total amount of products found
+        amount: products.length,
         products: products.map((product) => {
           return {
             title: product.title,
@@ -89,9 +88,6 @@ async function productRecommendation({ api, logger, request, searchTerm }) {
 async function productByTitle({ api, logger, request, title }) {
   try {
     const currentShopId = request.headers["x-shopify-shop-id"];
-
-    logger.info(currentShopId);
-    logger.info(title);
     const products = await api.shopifyProduct.findMany({
       search: title,
       filter: {
@@ -101,13 +97,12 @@ async function productByTitle({ api, logger, request, title }) {
       },
     });
 
-    // If no products found, respond accordingly
     if (products.length < 1) {
       const response = {
         status: "No product found by this title"
       };
 
-      await reply.type("application/json").send(response);
+      return response;
     }
 
     if (products.length > 0) {
@@ -118,11 +113,11 @@ async function productByTitle({ api, logger, request, title }) {
         productCategory: products[0].productCategory.productTaxonomyNode.fullName,
       };
 
-      await reply.type("application/json").send(response);
+      return response;
     }
   } catch (error) {
     logger.error(error);
-    return reply.status(500).send({ error: "Internal Server Error" });
+    throw new Error(error);
   }
 }
 
