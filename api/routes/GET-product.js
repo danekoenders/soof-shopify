@@ -33,7 +33,7 @@ async function productRecommendation({ api, logger, request, searchTerm }) {
           equals: currentShopId,
         },
       },
-      first: 3,
+      first: 5,
       select: {
         title: true,
         handle: true,
