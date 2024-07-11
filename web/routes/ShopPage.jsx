@@ -1,7 +1,8 @@
 import { useFindFirst, useQuery } from "@gadgetinc/react";
 import { Card, Banner, FooterHelp, InlineStack, Icon, Layout, Link, Page, Spinner, Text, BlockStack } from "@shopify/polaris";
 import { StoreMajor } from "@shopify/polaris-icons";
-import { api } from "./api";
+import { api } from "../api";
+import { useMantle } from '@heymantle/react';
 
 const gadgetMetaQuery = `
   query {
@@ -17,7 +18,8 @@ const ShopPage = () => {
   const [{ data: metaData, fetching: fetchingGadgetMeta }] = useQuery({
     query: gadgetMetaQuery,
   });
-  
+  const { subscription } = useMantle();
+
   if (error) {
     return (
       <Page title="Error">
@@ -47,9 +49,14 @@ const ShopPage = () => {
   return (
     <Page title="App">
       <Layout>
-        <Layout.Section>
-          <Banner title={`${metaData.gadgetMeta.slug} is successfully connected to Shopify`} tone="success" />
-        </Layout.Section>
+        {subscription.active && (new Date() < new Date(subscription.trialExpiresAt)) && (
+          <Layout.Section>
+            <Banner
+              title={`You are on a free trial. Expires in ${Math.ceil((new Date(subscription.trialExpiresAt) - new Date()) / (1000 * 60 * 60 * 24))} days`}
+              tone="success"
+            />
+          </Layout.Section>
+        )}
         <Layout.Section>
           <Card>
             <div style={{ width: "100%" }}>

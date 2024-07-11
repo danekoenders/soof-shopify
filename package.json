@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@gadget-client/soof-shopify": "link:.gadget/client",
-    "@gadgetinc/react": "^0.15.5",
+    "@gadgetinc/react": "^0.15.10",
     "gadget-server": "link:.gadget/server",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,10 +20,11 @@
     "@shopify/app-bridge": "3.5.0",
     "@shopify/app-bridge-react": "3.5.0",
     "@gadgetinc/react-shopify-app-bridge": "^0.13.4",
-    "fastify": "^4.24.2"
+    "fastify": "^4.24.2",
+    "@heymantle/polaris": "^12"
   },
   "devDependencies": {
-    "@types/node": "^20.8.4",
+    "@types/node": "^20.12.8",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "3.2.0",

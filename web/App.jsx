@@ -3,9 +3,12 @@ import { NavigationMenu } from "@shopify/app-bridge-react";
 import { Page, Spinner, Text } from "@shopify/polaris";
 import { useEffect, useMemo } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import AboutPage from "./AboutPage";
-import ShopPage from "./ShopPage";
+import AboutPage from "./routes/AboutPage";
+import ShopPage from "./routes/ShopPage";
+import PlansPage from "./routes/PlansPage";
 import { api } from "./api";
+import { MantleProvider } from "@heymantle/react";
+import { useFindFirst } from "@gadgetinc/react";
 
 const Error404 = () => {
   const navigate = useNavigate();
@@ -59,11 +62,37 @@ function AuthenticatedApp() {
 }
 
 function EmbeddedApp() {
+  const [{ data, fetching }] = useFindFirst(api.shopifyShop, {
+    select: {
+      mantleApiToken: true,
+    }
+  });
+
+  if (fetching) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <Spinner accessibilityLabel="Spinner example" size="large" />
+      </div>
+    );
+  }
+
   return (
-    <>
+    <MantleProvider
+      appId={process.env.GADGET_PUBLIC_MANTLE_APP_ID}
+      customerApiToken={data?.mantleApiToken}
+    >
       <Routes>
         <Route path="/" element={<ShopPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/plans" element={<PlansPage />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <NavigationMenu
@@ -76,9 +105,13 @@ function EmbeddedApp() {
             label: "About",
             destination: "/about",
           },
+          {
+            label: "Plans",
+            destination: "/plans",
+          }
         ]}
       />
-    </>
+    </MantleProvider>
   );
 }
 

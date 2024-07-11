@@ -1,4 +1,5 @@
 import { applyParams, preventCrossShopDataAccess, save, ActionOptions, UpdateShopifyShopActionContext } from "gadget-server";
+import { identifyShop } from '../../../services/mantle'
 
 /**
  * @param { UpdateShopifyShopActionContext } context
@@ -13,7 +14,10 @@ export async function run({ params, record, logger, api, connections }) {
  * @param { UpdateShopifyShopActionContext } context
  */
 export async function onSuccess({ params, record, logger, api, connections }) {
-  // Your logic goes here
+  await identifyShop({
+    shop: record,
+    api,
+  });
 };
 
 /** @type { ActionOptions } */
