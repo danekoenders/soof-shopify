@@ -21,7 +21,6 @@ export async function onSuccess({ params, record, logger, api, connections }) {
     api,
   });
 
-  logger.info("made it till 1")
   try {
     const shopDomains = await api.shopifyDomain.findMany({
       filter: {
@@ -33,9 +32,8 @@ export async function onSuccess({ params, record, logger, api, connections }) {
         url: true,
       }
     });
-    logger.info("made it till 2")
+    
     const shop = await updateShop({ shop: record, shopDomains: shopDomains });
-    logger.info("made it till 3")
   } catch (error) {
     throw new Error(error);
   }
