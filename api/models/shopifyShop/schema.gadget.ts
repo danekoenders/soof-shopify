@@ -8,6 +8,14 @@ export const schema: GadgetModel = {
   storageKey: "DataModel-Shopify-Shop",
   fields: {
     mantleApiToken: { type: "string", storageKey: "JEIFuNxNrfeC" },
+    shopConnections: {
+      type: "hasMany",
+      children: {
+        model: "shopConnection",
+        belongsToField: "shopifyShop",
+      },
+      storageKey: "uA2Lx3Nx0ntF",
+    },
   },
   shopify: {
     fields: [

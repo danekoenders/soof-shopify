@@ -89,28 +89,30 @@ function EmbeddedApp() {
       appId={process.env.GADGET_PUBLIC_MANTLE_APP_ID}
       customerApiToken={data?.mantleApiToken}
     >
-      <Routes>
-        <Route path="/" element={<ShopPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/plans" element={<PlansPage />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
-      <NavigationMenu
-        navigationLinks={[
-          {
-            label: "Shop Information",
-            destination: "/",
-          },
-          {
-            label: "About",
-            destination: "/about",
-          },
-          {
-            label: "Plans",
-            destination: "/plans",
-          }
-        ]}
-      />
+      <>
+        <Routes>
+          <Route path="/" element={<ShopPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/plans" element={<PlansPage />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+        <NavigationMenu
+          navigationLinks={[
+            {
+              label: "Shop Information",
+              destination: "/",
+            },
+            {
+              label: "About",
+              destination: "/about",
+            },
+            {
+              label: "Plans",
+              destination: "/plans",
+            }
+          ]}
+        />
+      </>
     </MantleProvider>
   );
 }

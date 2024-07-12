@@ -25,6 +25,7 @@ export const settings: GadgetSettings = {
           "write_products",
         ],
       },
+      sentry: true,
     },
   },
 };

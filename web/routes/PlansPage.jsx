@@ -6,6 +6,7 @@ import { PlanCardStack, PlanCardType } from '@heymantle/polaris';
 
 export default function () {
   const navigate = useNavigate();
+  const { subscription } = useMantle();
 
   const { customer, plans, subscribe } = useMantle();
 
@@ -19,6 +20,14 @@ export default function () {
     >
       <TitleBar title="Select a plan" />
       <Layout>
+        {subscription.active && (new Date() < new Date(subscription.trialExpiresAt)) && (
+          <Layout.Section>
+            <Banner
+              title={`You are on a free trial. Expires in ${Math.ceil((new Date(subscription.trialExpiresAt) - new Date()) / (1000 * 60 * 60 * 24))} days`}
+              tone="success"
+            />
+          </Layout.Section>
+        )}
         <Layout.Section>
           <PlanCardStack
             cardType={PlanCardType.Highlighted}

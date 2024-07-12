@@ -6,7 +6,7 @@ export default async function route({ request, reply, api, logger, connections }
   const title = request.query.title;
   const searchTerm = request.query.searchTerm;
 
-  if (!isAuthenticated(reply, request, logger)) {
+  if (!isAuthorized(reply, request, logger)) {
     return await reply.status(403).send({ error: "Unauthorized" });
   }
 
@@ -122,11 +122,11 @@ async function productByTitle({ api, logger, request, title }) {
   }
 }
 
-function isAuthenticated(reply, request, logger) {
+function isAuthorized(reply, request, logger) {
   const allowedOrigin = process.env.SOOF_APP_DOMAIN;
-  const Authorization = request.headers.authorization;
+  const authorization = request.headers.authorization;
 
-  if (!Authorization === process.env.AUTHORIZATION) {
+  if (!authorization === process.env.AUTHORIZATION) {
     logger.error('Acces denied');
     return false;
   }

@@ -415,14 +415,14 @@
     tslib "^2.6.2"
     ws "^8.13.0"
 
-"@gadgetinc/react-shopify-app-bridge@^0.13.4":
-  version "0.13.4"
-  resolved "https://registry.yarnpkg.com/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.13.4.tgz#c1338ea0a7570f880b19b2bca87e3d3211203a52"
-  integrity sha512-KAIHdx4ASClG8PzXrrVCcO0uVM2+oWRoSNQRlLyhmDJuMdcKottEZbG3pIGm7v9ll9vs8NnDjrCUQMmzoOy7yg==
+"@gadgetinc/react-shopify-app-bridge@^0.15.2":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@gadgetinc/react-shopify-app-bridge/-/react-shopify-app-bridge-0.15.3.tgz#ee21da0b5f5121ce602e74026a362dcddeff3963"
+  integrity sha512-4KLbILB73r3Dwf3JOrEN0qzVAqaO8YZSoVQxNv7TwVC0AuyWsq4zI9baXxZvPLrrEjQpDXqlFMkS0YZSBEjiKw==
   dependencies:
     "@gadgetinc/api-client-core" "^0.15.13"
-    "@shopify/app-bridge-utils" "^3.1.1"
-    crypto-js "^4.1.1"
+    crypto-js "^4.2.0"
+    tslib "^2.6.2"
 
 "@gadgetinc/react@^0.15.10":
   version "0.15.13"
@@ -515,6 +515,56 @@
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.8.0.tgz#e848d2f669f601544df15ce2a313955e4bf0bafc"
   integrity sha512-mrfKqIHnSZRyIzBcanNJmVQELTnX+qagEDlcKO90RgRBVOZGSGvZKeDihTRfWcqoDn5N/NkUcwWTccnpN18Tfg==
 
+"@sentry-internal/tracing@7.118.0":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry-internal/tracing/-/tracing-7.118.0.tgz#1a96ea745db818e20c2f8273d317f284a416a90a"
+  integrity sha512-dERAshKlQLrBscHSarhHyUeGsu652bDTUN1FK0m4e3X48M3I5/s+0N880Qjpe5MprNLcINlaIgdQ9jkisvxjfw==
+  dependencies:
+    "@sentry/core" "7.118.0"
+    "@sentry/types" "7.118.0"
+    "@sentry/utils" "7.118.0"
+
+"@sentry/core@7.118.0":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.118.0.tgz#1549b49621bc05a8df16c3546793a299b0638559"
+  integrity sha512-ol0xBdp3/K11IMAYSQE0FMxBOOH9hMsb/rjxXWe0hfM5c72CqYWL3ol7voPci0GELJ5CZG+9ImEU1V9r6gK64g==
+  dependencies:
+    "@sentry/types" "7.118.0"
+    "@sentry/utils" "7.118.0"
+
+"@sentry/integrations@7.118.0":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.118.0.tgz#f090db621979785c6dc44406da1f72653fa0617c"
+  integrity sha512-C2rR4NvIMjokF8jP5qzSf1o2zxDx7IeYnr8u15Kb2+HdZtX559owALR0hfgwnfeElqMhGlJBaKUWZ48lXJMzCQ==
+  dependencies:
+    "@sentry/core" "7.118.0"
+    "@sentry/types" "7.118.0"
+    "@sentry/utils" "7.118.0"
+    localforage "^1.8.1"
+
+"@sentry/node@^7.17.3":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-7.118.0.tgz#c0b78cabc737eb8a638e82f338fc533455552117"
+  integrity sha512-79N63DvYKkNPqzmc0cjO+vMZ/nU7+CbE3K3COQNiV7gk58+666G9mRZQJuZVOVebatq5wM5UR0G4LPkwD+J84g==
+  dependencies:
+    "@sentry-internal/tracing" "7.118.0"
+    "@sentry/core" "7.118.0"
+    "@sentry/integrations" "7.118.0"
+    "@sentry/types" "7.118.0"
+    "@sentry/utils" "7.118.0"
+
+"@sentry/types@7.118.0":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.118.0.tgz#ca3ab06912f60bc2a7ccf2d2e5ccf43985851aef"
+  integrity sha512-2drqrD2+6kgeg+W/ycmiti3G4lJrV3hGjY9PpJ3bJeXrh6T2+LxKPzlgSEnKFaeQWkXdZ4eaUbtTXVebMjb5JA==
+
+"@sentry/utils@7.118.0":
+  version "7.118.0"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.118.0.tgz#bfc60826fe3d5d2ae7338ec6ac1f06c20beb179e"
+  integrity sha512-43qItc/ydxZV1Zb3Kn2M54RwL9XXFa3IAYBO8S82Qvq5YUYmU2AmJ1jgg7DabXlVSWgMA1HntwqnOV3JLaEnTQ==
+  dependencies:
+    "@sentry/types" "7.118.0"
+
 "@shopify/app-bridge-core@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@shopify/app-bridge-core/-/app-bridge-core-1.0.2.tgz#083835998082c1577f30c34224ab0750d9bee204"
@@ -527,13 +577,6 @@
   dependencies:
     "@shopify/app-bridge" "^3.5.0"
 
-"@shopify/app-bridge-utils@^3.1.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-utils/-/app-bridge-utils-3.5.1.tgz#e7afd52dc7cdbd61871329843d55cc435736c5ab"
-  integrity sha512-VZRvRfg1nF/0/C7zIwYlQ2RXY2S7ALw04Lp6vXPkzBxggDYakx9Lbvc5/k7ZTvhwZv2q8+FVHh319IMW81b27Q==
-  dependencies:
-    "@shopify/app-bridge" "^3.5.1"
-
 "@shopify/app-bridge@3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@shopify/app-bridge/-/app-bridge-3.5.0.tgz#187aaa02eaf131ca52b1954ad60292921d787e66"
@@ -542,7 +585,7 @@
     base64url "^3.0.1"
     web-vitals "^3.0.1"
 
-"@shopify/app-bridge@^3.5.0", "@shopify/app-bridge@^3.5.1":
+"@shopify/app-bridge@^3.5.0":
   version "3.7.9"
   resolved "https://registry.yarnpkg.com/@shopify/app-bridge/-/app-bridge-3.7.9.tgz#8ee10f531af9bf8260d65d9b5adbe42351e243f8"
   integrity sha512-ZT4Lc8wg/r8/VF5QbpGiIICyuytSPcPMiqTxsAXwT72mSgWTUog5/FMMu0hBH9c+OpvjDM4FjxDv9f8pKCC3aw==
@@ -948,7 +991,7 @@ cross-fetch@^4.0.0:
   dependencies:
     node-fetch "^2.6.12"
 
-crypto-js@^4.1.1:
+crypto-js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
   integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
@@ -1302,6 +1345,11 @@ ieee754@^1.2.1:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
+immediate@~3.0.5:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
+  integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
+
 import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.3.0.tgz#37162c25fcb9ebaa2e6e53d5b4d88ce17d9e0c2b"
@@ -1376,6 +1424,13 @@ klona@^2.0.6:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.6.tgz#85bffbf819c03b2f53270412420a4555ef882e22"
   integrity sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==
 
+lie@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/lie/-/lie-3.1.1.tgz#9a436b2cc7746ca59de7a41fa469b3efb76bd87e"
+  integrity sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==
+  dependencies:
+    immediate "~3.0.5"
+
 light-my-request@^5.11.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/light-my-request/-/light-my-request-5.11.0.tgz#90e446c303b3a47b59df38406d5f5c2cf224f2d1"
@@ -1389,6 +1444,13 @@ lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
+
+localforage@^1.8.1:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.10.0.tgz#5c465dc5f62b2807c3a84c0c6a1b1b3212781dd4"
+  integrity sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==
+  dependencies:
+    lie "3.1.1"
 
 lodash@^4.17.10:
   version "4.17.21"

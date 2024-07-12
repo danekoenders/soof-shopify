@@ -20,17 +20,8 @@ const ShopPage = () => {
   });
   const { subscription } = useMantle();
 
-  if (error) {
-    return (
-      <Page title="Error">
-        <Text variant="bodyMd" as="p">
-          Error: {error.toString()}
-        </Text>
-      </Page>
-    );
-  }
-
-  if (fetching || fetchingGadgetMeta) {
+  // Check if fetching or if subscription is not yet available
+  if (fetching || fetchingGadgetMeta || !subscription) {
     return (
       <div
         style={{
@@ -43,6 +34,17 @@ const ShopPage = () => {
       >
         <Spinner accessibilityLabel="Spinner example" size="large" />
       </div>
+    );
+  }
+
+  // Check if there was an error in fetching data
+  if (error) {
+    return (
+      <Page title="Error">
+        <Text variant="bodyMd" as="p">
+          Error: {error.toString()}
+        </Text>
+      </Page>
     );
   }
 
@@ -142,3 +144,5 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
+
+

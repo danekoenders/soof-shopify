@@ -19,9 +19,10 @@
     "@shopify/polaris-icons": "^7.9.0",
     "@shopify/app-bridge": "3.5.0",
     "@shopify/app-bridge-react": "3.5.0",
-    "@gadgetinc/react-shopify-app-bridge": "^0.13.4",
+    "@gadgetinc/react-shopify-app-bridge": "^0.15.2",
     "fastify": "^4.24.2",
-    "@heymantle/polaris": "^12"
+    "@heymantle/polaris": "^12",
+    "@sentry/node": "^7.17.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
